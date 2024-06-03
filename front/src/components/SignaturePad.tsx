@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { toast } from 'sonner';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import SignatureCanvas from 'react-signature-canvas';
@@ -25,10 +25,10 @@ const SignaturePad = ({ setSignatureData, authenticated, setDisplayed }: any) =>
 
   return (
     <div className="flex ml-4 flex-col mt-8 gap-4 max-xl:w-[50%] w-[30%]">
-      <h4>
+      <Typography variant="h5">
         Write your signature here
         <ArrowDownwardIcon fontSize="medium" className="text-blue-600 ml-2" />
-      </h4>
+      </Typography>
       <div className="border-solid border-black border-[1px]">
         <SignatureCanvas ref={sigCanvas} canvasProps={{ width: 500, height: 200, className: 'sigCanvas' }} />
       </div>
