@@ -1,0 +1,44 @@
+name: Deployment Pipeline
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            # - name: Cancel Previous Redundant Builds
+            #   uses: styfle/cancel-workflow-action@0.9.1
+            #   with:
+            #       access_token: ${{ github.token }}
+            - uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: npm install
+              # run: npm ci
+            - name: Lint
+              run: npm run lint
+            # - name: Test
+              # uses: some-action/some-action@v1
+              # with:
+              #   command: npm run test
+              #   start: npm run start
+              #   wait-on: 'http://localhost:5173'
+            # - name: E2E tests
+            #   with:
+            #   command: npm run test:e2e
+            #   start: npm run start
+            #   wait-on: 'http://localhost:3000'
+            - name: Build
+              run: npm run build 
+            # - name: Deploy
+            #   uses: peaceiris/actions-gh-pages@v3
+            #   with:
+            #       github_token: ${{ secrets.GITHUB_TOKEN }}
+            #       publish_dir: ./build
