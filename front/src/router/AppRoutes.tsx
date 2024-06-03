@@ -4,7 +4,7 @@ import { Toaster, toast } from 'sonner'
 import SignaturePad from '../components/SignaturePad'
 import App from '../App';
 import Header from '../components/Header';
-import { addSignatureToPdf } from '../utils/updatePDF';
+import addSignatureToPdf from '../utils/updatePDF';
 import LoginForm from '../components/LoginForm';
 
 
@@ -49,7 +49,7 @@ function AppRoutes({ }: Props) {
         if (pdfFile && signatureData) {
             const response = await fetch(pdfFile);
             const pdfBytes = await response.arrayBuffer();
-            const signedPdfBytes = await addSignatureToPdf(pdfBytes, signatureData);
+            const signedPdfBytes = await addSignatureToPdf({ pdfData: pdfBytes, signatureDataUrl: signatureData });
             const signedPdfBlob = new Blob([signedPdfBytes], { type: 'application/pdf' });
             setSignedPdfFile(URL.createObjectURL(signedPdfBlob));
         }

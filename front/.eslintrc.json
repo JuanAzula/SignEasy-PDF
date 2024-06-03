@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb-typescript"
+  ],
+  "parserOptions": {
+    "project": "front/tsconfig.json"
+  },
+  "rules": {
+    "react/jsx-props-no-spreading": "off"
+  }
+}

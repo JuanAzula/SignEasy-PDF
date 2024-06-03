@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { TextField, Button, Stack } from "@mui/material";
-// import { DevTool } from "@hookform/devtools";
-import { authenticate } from "../utils/authenticate";
+import authenticate from "../utils/authenticate";
 import { toast } from "sonner";
 
 type FormValues = {
@@ -16,7 +15,6 @@ const LoginForm = ({ setDisplayed, setAuthenticated }: any) => {
         handleSubmit,
         register,
         formState: { errors },
-        // control,
     } = useForm<FormValues>({
         defaultValues: {
             email: "",
@@ -64,7 +62,6 @@ const LoginForm = ({ setDisplayed, setAuthenticated }: any) => {
                     </Button>
                 </Stack>
             </form>
-            {/* <DevTool control={control} /> */}
         </>
     );
 };
