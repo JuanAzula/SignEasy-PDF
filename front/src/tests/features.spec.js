@@ -11,7 +11,7 @@ test('Authenticate', async ({ page }) => {
   await page.getByLabel('Pin').fill(USER_PASSWORD);
   await page.getByRole('button', { name: 'Submit' }).click();
   await page.waitForTimeout(1000);
-  await page.screenshot({ path: 'src/tests/login.png' });
+  await page.screenshot({ path: 'src/tests/screenshots/login.png' });
 });
 
 test('Save signature', async ({ page }) => {
@@ -22,5 +22,5 @@ test('Save signature', async ({ page }) => {
   await page.getByRole('button', { name: 'Submit' }).click();
   await page.getByRole('button', { name: 'save' }).click();
   await page.waitForTimeout(1500);
-  await page.screenshot({ path: 'src/tests/signature.png' });
+  await page.screenshot({ path: 'src/tests/screenshots/signature.png' });
 });
