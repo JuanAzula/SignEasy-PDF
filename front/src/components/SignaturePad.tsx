@@ -14,6 +14,7 @@ const SignaturePad = ({ setSignatureData, authenticated, setDisplayed }: any) =>
 
     const save: any = async () => {
         if (!authenticated) {
+            toast.error('Please authenticate to save your signature');
             setDisplayed(true);
             return
         }
@@ -31,20 +32,22 @@ const SignaturePad = ({ setSignatureData, authenticated, setDisplayed }: any) =>
             <div className='flex gap-4 flex-col w-12'>
                 <Button variant='contained' onClick={clear}>Clear</Button>
                 <Button variant='contained' onClick={() => {
-                    authenticated ?
+                    if (authenticated) {
                         toast.promise(
                             new Promise<any>((resolve, reject) => {
                                 save()
                                     .then(setTimeout(() => resolve({}), 1000))
                                     .catch(reject)
-                                setDisplayed(true)
                             }), {
                             loading: 'Saving signature...',
                             success: 'Signature saved!',
                             error: 'Could not add signature'
                         }
                         )
-                        : setDisplayed(true)
+                    } else {
+                        setDisplayed(true);
+                        toast.error('Please authenticate to save your signature');
+                    }
                 }}>Save</Button>
             </div>
         </div >

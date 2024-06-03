@@ -6,7 +6,6 @@ import { Button, Input } from '@mui/material'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-import LoginForm from './components/LoginForm';
 
 
 interface AppProps {
@@ -44,9 +43,9 @@ const App: React.FC<AppProps> = ({ onFileChange, signPdf, pdfFile, setPdfFile, s
                             fontSize='large'
                             className='cursor-pointer  text-blue-500 hover:text-red-600'
                             onClick={() => {
-                                window.location.reload()
-                                // pdfFile && setPdfFile(null);
-                                // signedPdfFile && setSignedPdfFile(null)
+                                // window.location.reload()
+                                pdfFile && setPdfFile(null);
+                                signedPdfFile && setSignedPdfFile(null)
                             }} />
                         : null}
                 </div>
