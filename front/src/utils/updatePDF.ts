@@ -9,7 +9,6 @@ const addSignatureToPdf = async ({ pdfData, signatureDataUrl }: Props) => {
   const pages = pdfDoc.getPages();
   const firstPage = pages[0];
 
-  // Add the signature image to the PDF
   const pngImage = await pdfDoc.embedPng(signatureDataUrl);
   const { width, height } = firstPage.getSize();
   firstPage.drawImage(pngImage, {

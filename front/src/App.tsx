@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import { version as pdfjsVersion } from 'pdfjs-dist';

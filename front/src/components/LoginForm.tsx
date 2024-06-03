@@ -24,8 +24,6 @@ const LoginForm = ({ setDisplayed, setAuthenticated }: any) => {
 
     const onSubmit = async (data: FormValues) => {
         const response: any = await authenticate(data.email, data.password);
-
-        console.log(response);
         if (response.status !== 200) {
             toast.error("Wrong username or pin!")
             return

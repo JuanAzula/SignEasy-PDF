@@ -6,8 +6,6 @@ import SignatureCanvas from 'react-signature-canvas';
 
 const SignaturePad = ({ setSignatureData, authenticated, setDisplayed }: any) => {
     const sigCanvas = useRef<SignatureCanvas | null>(null);
-    console.log(authenticated)
-
     const clear = () => {
         if (sigCanvas.current === null) return
         sigCanvas.current.clear()
