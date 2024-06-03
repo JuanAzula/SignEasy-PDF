@@ -5,7 +5,6 @@ WORKDIR /home/app
 COPY . .
 
 RUN npm i -g nodemon
-RUN npm i bcrypt
 # RUN npm install -g typescript
 
 # RUN tsc
