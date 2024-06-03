@@ -42,7 +42,7 @@ const LoginForm = ({ setDisplayed, setAuthenticated }: any) => {
 
     return (
         <>
-            <h1 className="mb-2">Please log in to sign.</h1>
+            <h1 className="mb-2">Please authenticate to sign.</h1>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <Stack spacing={2} width={400}>
                     <TextField

@@ -31,6 +31,7 @@ const App: React.FC<AppProps> = ({ onFileChange, signPdf, pdfFile, setPdfFile, s
                         inputProps={{ accept: '.pdf' }}
                         id="file-upload"
                         onChange={onFileChange}
+                        value={''}
                         color='primary' />
                     <label htmlFor="file-upload">
                         <Button variant="contained" color='primary' component="span">UPLOAD PDF</Button>
@@ -43,7 +44,6 @@ const App: React.FC<AppProps> = ({ onFileChange, signPdf, pdfFile, setPdfFile, s
                             fontSize='large'
                             className='cursor-pointer  text-blue-500 hover:text-red-600'
                             onClick={() => {
-                                // window.location.reload()
                                 pdfFile && setPdfFile(null);
                                 signedPdfFile && setSignedPdfFile(null)
                             }} />
