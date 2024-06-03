@@ -6,9 +6,6 @@ services:
       - "3333:3333"
     networks:
       - mynetwork
-    depends_on:
-      - redis
-      # - mongo
     environment:
       - NODE_ENV=development
       - PORT=3333
